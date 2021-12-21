@@ -1,4 +1,4 @@
- <template>
+<template>
   <div class="conditions-wrapper">
     <el-form inline>
       <el-form-item>
@@ -7,10 +7,11 @@
         </el-input>
       </el-form-item>
       <el-form-item>
-          <el-select placeholder="所属学科">
-            <el-option label="web前端" value="web"> </el-option>
-            <el-option label="java" value="java"></el-option>
-          </el-select>
+        <div class="el-input-group__prepend subject">所属学科</div>
+        <el-select id="subject" placeholder="请选择">
+          <el-option label="web前端" value="web" />
+          <el-option label="java" value="java" />
+        </el-select>
       </el-form-item>
       <el-form-item>
         <el-input placeholder="职位">
@@ -22,40 +23,49 @@
           <template slot="prepend">工作年限</template>
         </el-input>
       </el-form-item>
-       <el-form-item>
-        <el-input placeholder="止"></el-input>
-       </el-form-item>
-        <el-form-item>
+      <el-form-item>
+        <el-input placeholder="止" />
+      </el-form-item>
+      <el-form-item>
         <el-input placeholder="手机号">
           <template slot="prepend">手机号</template>
         </el-input>
       </el-form-item>
       <el-form-item>
-         <el-button type="primary" size="mini" icon="el-icon-search">搜索</el-button>
-         <el-button type="info" size="mini" icon="el-icon-top-left">重置</el-button>
+        <el-button
+          type="primary"
+          size="mini"
+          icon="el-icon-search"
+        >搜索</el-button>
+        <el-button
+          type="info"
+          size="mini"
+          icon="el-icon-top-left"
+        >重置</el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style lang="scss" scoped>
-// .conditions-wrapper {
-//   display: flex;
-//   align-items: center;
-//   width: 100%;
-//   &__item {
-//     display: flex;
-//     flex-direction: row;
-//     align-items: center;
-//     span {
-//       width: 50px;
-//       margin: 0 20px;
-//       display: inline-block;
-//     }
-//   }
-// }
+</style>
+<style>
+.el-input__inner {
+  width: 100px;
+}
+.subject{
+  display:inline-block;
+  width:80px;
+  height:36px;
+  padding:0 10px;
+  margin-top:-4px;
+}
+#subject{
+border-top-left-radius: 0px;
+border-bottom-left-radius:0px;
+}
 </style>
