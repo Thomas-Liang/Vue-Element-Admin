@@ -29,6 +29,10 @@ export default {
     Conditions
   },
   data() {
+    return {}
+  },
+
+  data() {
     return {
       formData: {
         column: [
@@ -82,7 +86,7 @@ export default {
     getTeamList().then((res) => {
       const { code, data } = res
       if (code === 20000) {
-        const { items } = data
+        const { items, total } = data
         this.formData.list = items
       }
       console.log('team', res)

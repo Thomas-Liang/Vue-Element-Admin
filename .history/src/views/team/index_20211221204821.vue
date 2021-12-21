@@ -29,6 +29,10 @@ export default {
     Conditions
   },
   data() {
+    return {}
+  },
+
+  data() {
     return {
       formData: {
         column: [
