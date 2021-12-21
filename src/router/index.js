@@ -95,30 +95,30 @@ export const constantRoutes = [
       }
     ]
   },
-  {
-    path: '/team',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/team/index'),
-        name: 'Team',
-        meta: { title: 'Team', icon: 'people', affix: true }
-      }
-    ]
-  },
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/form/index'),
-        name: 'Form',
-        meta: { title: 'Form', icon: 'form', affix: true }
-      }
-    ]
-  },
+  // {
+  //   path: '/team',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/team/index'),
+  //       name: 'Team',
+  //       meta: { title: 'Team', icon: 'people', affix: true }
+  //     }
+  //   ]
+  // },
+  // {
+  //   path: '/form',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/form/index'),
+  //       name: 'Form',
+  //       meta: { title: 'Form', icon: 'form', affix: true }
+  //     }
+  //   ]
+  // },
   {
     path: '/guide',
     component: Layout,
@@ -193,26 +193,21 @@ export const asyncRoutes = [
           roles: ['admin']
         }
       },
+      {
+        path: 'team',
+        component: () => import('@/views/team/index'),
+        name: 'Team',
+        meta: { title: 'Team', icon: 'people', roles: ['editor']}
+      },
+      {
+        path: 'form',
+        component: () => import('@/views/form/index'),
+        name: 'Form',
+        meta: { title: 'Form', icon: 'form', roles: ['admin']}
+      },
     ]
   },
-  // {
-  //   path: '/team',
-  //   component: Layout,
-  //   name: 'Team',
-  //   meta: {
-  //     title: 'Team',
-  //     icon: 'people'
-  //   },
-  //   children: [
-  //     {
-  //       path: 'team',
-  //       component: () => import('@/views/team/index'),
-  //       name: 'Team',
-  //       meta: { title: 'Team', icon: 'people' },
-  //       roles: ['editor'] 
-  //     }
-  //   ]
-  // },
+
   {
     path: '/icon',
     component: Layout,

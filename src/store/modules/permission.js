@@ -30,8 +30,8 @@ export function filterAsyncRoutes(routes, roles) {
       res.push(tmp)
     }
   })
-
   return res
+  
 }
 
 const state = {
@@ -51,9 +51,22 @@ const actions = {
     return new Promise(resolve => {
       let accessedRoutes
       if (roles.includes('admin')) {
+        //当role是admin的时候，控制team页面hidden为true，不显示该页面
+        asyncRoutes[0].children.forEach(child => {
+          if( child.path === 'team'){
+            child.hidden = true;
+          }
+        })
         accessedRoutes = asyncRoutes || []
       } else {
+        //当role不是admin并且是editor的时候，控制team页面hidden为false，显示该页面
+        asyncRoutes[0].children.forEach(child => {
+          if( child.path === 'team'){
+            child.hidden = false;
+          }
+        })
         accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
+
       }
       commit('SET_ROUTES', accessedRoutes)
       resolve(accessedRoutes)

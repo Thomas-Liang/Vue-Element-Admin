@@ -1,5 +1,5 @@
 <template>
-  <div class="team-wrapper">
+  <div class="team-wrapper" v-if="checkPermission(['editor'])" >
     <list-layout>
       <template slot="header">
         <conditions />
@@ -23,6 +23,7 @@ import { getTeamList } from "@/api/team.js";
 import ListLayout from "@/components/ListLayout/index.vue";
 import AlTable from "@/components/AlTable/index.vue";
 import Conditions from "./components/conditions/index.vue";
+import checkPermission from "@/utils/permission"; // 权限判断函数
 export default {
   data() {
     return {};
@@ -75,11 +76,6 @@ export default {
                   <el-link type="primary">编辑|</el-link>
                   <el-link type="primary">删除</el-link>
                 </div>
-                // <div>
-                //   <el-button size="mini" type="primary">查看</el-button>
-                //   <el-button size="mini" type="success">编辑</el-button>
-                //   <el-button size="mini" type="danger">删除</el-button>
-                // </div>
               );
             },
           },
@@ -88,7 +84,9 @@ export default {
       },
     };
   },
-
+  methods: {
+    checkPermission
+  },
   created() {
     getTeamList().then((res) => {
       const { code, data } = res;
@@ -96,7 +94,7 @@ export default {
         const { items, total } = data;
         this.formData.list = items;
       }
-      console.log("test", res);
+      console.log("team", res);
     });
   },
 };
