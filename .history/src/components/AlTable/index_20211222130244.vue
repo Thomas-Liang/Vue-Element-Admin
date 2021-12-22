@@ -19,7 +19,7 @@
       <!-- @slot 自定义 empty 内容 -->
       <template slot="empty" class="empty-wrapper">
         <template>
-          <img src="./assets/no-data.png">
+          <img src="./assets/no-data.png" />
           <div class="no-data-text">{{ emptyText }}</div>
         </template>
       </template>
@@ -40,12 +40,12 @@
  * 表格
  * @displayName Table
  */
-import DcColumn from './lb-column.vue'
+import DcColumn from "./lb-column.vue";
 
 export default {
-  name: 'LbTable',
+  name: "LbTable",
   components: {
-    DcColumn
+    DcColumn,
   },
   props: {
     /**
@@ -55,7 +55,7 @@ export default {
      */
     column: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     /**
      * 表格的数据源展示
@@ -63,14 +63,14 @@ export default {
      */
     data: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     /**
      * 合并单元格
      *  @values Function
      */
     spanMethod: {
-      type: Function
+      type: Function,
     },
     /**
      * 分页
@@ -78,7 +78,7 @@ export default {
      */
     pagination: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * 分页控件距离顶部的距离
@@ -86,7 +86,7 @@ export default {
      */
     paginationTop: {
       type: String,
-      default: '20px'
+      default: "20px",
     },
     /**
      * 分页布局对齐位置
@@ -94,7 +94,7 @@ export default {
      */
     paginationAlign: {
       type: String,
-      default: 'right'
+      default: "right",
     },
     /**
      * 表格合并数组
@@ -106,104 +106,104 @@ export default {
      */
     emptyText: {
       type: String,
-      default: '暂无数据'
+      default: "暂无数据",
     },
     emptyCustom: {
-      type: String
-    }
+      type: String,
+    },
   },
   data() {
     return {
       mergeLine: {},
-      mergeIndex: {}
-    }
+      mergeIndex: {},
+    };
   },
   computed: {
     dataLength() {
-      return this.data.length
-    }
+      return this.data.length;
+    },
   },
   watch: {
     merge() {
-      this.getMergeArr(this.data, this.merge)
+      this.getMergeArr(this.data, this.merge);
     },
     dataLength() {
-      this.getMergeArr(this.data, this.merge)
-    }
+      this.getMergeArr(this.data, this.merge);
+    },
   },
   created() {
-    this.getMergeArr(this.data, this.merge)
+    this.getMergeArr(this.data, this.merge);
   },
   methods: {
     clearSelection() {
-      this.$refs.elTable.clearSelection()
+      this.$refs.elTable.clearSelection();
     },
     toggleRowSelection(row, selected) {
-      this.$refs.elTable.toggleRowSelection(row, selected)
+      this.$refs.elTable.toggleRowSelection(row, selected);
     },
     toggleAllSelection() {
-      this.$refs.elTable.toggleAllSelection()
+      this.$refs.elTable.toggleAllSelection();
     },
     toggleRowExpansion(row, expanded) {
-      this.$refs.elTable.toggleRowExpansion(row, expanded)
+      this.$refs.elTable.toggleRowExpansion(row, expanded);
     },
     setCurrentRow(row) {
-      this.$refs.elTable.setCurrentRow(row)
+      this.$refs.elTable.setCurrentRow(row);
     },
     clearSort() {
-      this.$refs.elTable.clearSort()
+      this.$refs.elTable.clearSort();
     },
     clearFilter(columnKey) {
-      this.$refs.elTable.clearFilter(columnKey)
+      this.$refs.elTable.clearFilter(columnKey);
     },
     doLayout() {
-      this.$refs.elTable.doLayout()
+      this.$refs.elTable.doLayout();
     },
     sort(prop, order) {
-      this.$refs.elTable.sort(prop, order)
+      this.$refs.elTable.sort(prop, order);
     },
     paginationCurrentChange(val) {
-      this.$emit('p-current-change', val)
+      this.$emit("p-current-change", val);
     },
     getMergeArr(tableData, merge) {
-      if (!merge) return
-      this.mergeLine = {}
-      this.mergeIndex = {}
+      if (!merge) return;
+      this.mergeLine = {};
+      this.mergeIndex = {};
       merge.forEach((item) => {
         tableData.forEach((data, i) => {
           if (i === 0) {
-            this.mergeIndex[item] = this.mergeIndex[item] || []
-            this.mergeIndex[item].push(1)
-            this.mergeLine[item] = 0
+            this.mergeIndex[item] = this.mergeIndex[item] || [];
+            this.mergeIndex[item].push(1);
+            this.mergeLine[item] = 0;
           } else if (data[item] === tableData[i - 1][item]) {
-            this.mergeIndex[item][this.mergeLine[item]] += 1
-            this.mergeIndex[item].push(0)
+            this.mergeIndex[item][this.mergeLine[item]] += 1;
+            this.mergeIndex[item].push(0);
           } else {
-            this.mergeIndex[item].push(1)
-            this.mergeLine[item] = i
+            this.mergeIndex[item].push(1);
+            this.mergeLine[item] = i;
           }
-        })
-      })
+        });
+      });
     },
     // eslint-disable-next-line consistent-return
     mergeMethod({ column, rowIndex }) {
-      const index = this.merge.indexOf(column.property)
+      const index = this.merge.indexOf(column.property);
       if (index > -1) {
         // eslint-disable-next-line no-underscore-dangle
-        const _row = this.mergeIndex[this.merge[index]][rowIndex]
+        const _row = this.mergeIndex[this.merge[index]][rowIndex];
         // eslint-disable-next-line no-underscore-dangle
-        const _col = _row > 0 ? 1 : 0
+        const _col = _row > 0 ? 1 : 0;
         return {
           rowspan: _row,
-          colspan: _col
-        }
+          colspan: _col,
+        };
       }
     },
     uploadFile() {
-      this.$emit('uploadFile')
-    }
-  }
-}
+      this.$emit("uploadFile");
+    },
+  },
+};
 </script>
 
 <style lang="scss">

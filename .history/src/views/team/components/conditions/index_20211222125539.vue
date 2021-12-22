@@ -54,6 +54,9 @@ export default {}
 <style lang="scss" scoped>
 </style>
 <style>
+.conditions-wrapper{
+  margin:0 auto;
+}
 .el-input__inner {
   width: 100px;
 }
