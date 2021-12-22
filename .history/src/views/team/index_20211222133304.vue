@@ -39,34 +39,27 @@ export default {
           },
           {
             prop: 'phone',
-            label: '手机号',
-            sortable: true
-
+            label: '手机号'
           },
           {
             prop: 'name',
-            label: '真实姓名',
-            sortable: true
+            label: '真实姓名'
           },
           {
             prop: 'subject',
-            label: '所属学科',
-            sortable: true
+            label: '所属学科'
           },
           {
             prop: 'job',
-            label: '职位',
-            sortable: true
+            label: '职位'
           },
           {
             prop: 'year',
-            label: '工作年限',
-            sortable: true
+            label: '工作年限'
           },
           {
             prop: 'updateTime',
-            label: '录入时间',
-            sortable: true
+            label: '录入时间'
           },
           {
             prop: 'actions',
