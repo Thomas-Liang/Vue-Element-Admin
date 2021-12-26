@@ -266,7 +266,8 @@ export default {
     border-top-color: $commonTextColor;
   }
   .el-table__row > td {
-    border: none;
+    border:none;
+    border-left:1px solid $columnColor;
     border-top: 1px solid $columnColor;
   }
   .el-table--fit {
@@ -352,7 +353,7 @@ export default {
     height: 32px;
   }
   .el-pagination{
-    margin-right:50px;
+    margin-right:70px;
   }
   .el-table__fixed-right-patch {
     background-color: rgb(236, 241, 246);

@@ -1,37 +1,37 @@
 const list = [
-    {
-     nick:"Allen",
-     phone:"13566789067",
-     name:"John",
-     subject:"english",
-     job:"aaa",
-     year:22,
-     updateTime:'2021-11-30'
-    },{
-      nick:"Allen2",
-      phone:"13566789067",
-      name:"John",
-      subject:"english",
-      job:"aaa",
-      year:22,
-      updateTime:'2021-11-30'
-    },{
-      nick:"Allen3",
-      phone:"13566789067",
-      name:"John",
-      subject:"english",
-      job:"aaa",
-      year:22,
-      updateTime:'2021-11-30'
-    },{
-      nick:"Allen",
-      phone:"13566789067",
-      name:"John",
-      subject:"english",
-      job:"aaa",
-      year:22,
-      updateTime:'2021-11-30'
-    }
+  {
+    nick: 'Allen',
+    phone: '13566789067',
+    name: 'John',
+    subject: 'web',
+    job: 'aaa',
+    year: 22,
+    updateTime: '2021-11-30'
+  }, {
+    nick: 'Allen2',
+    phone: '13566789067',
+    name: 'John',
+    subject: 'web',
+    job: 'aaa',
+    year: 22,
+    updateTime: '2021-11-30'
+  }, {
+    nick: 'Allen3',
+    phone: '13566789067',
+    name: 'John',
+    subject: 'java',
+    job: 'aaa',
+    year: 22,
+    updateTime: '2021-11-30'
+  }, {
+    nick: 'Allen4',
+    phone: '13566789067',
+    name: 'John',
+    subject: 'java',
+    job: 'aaa',
+    year: 22,
+    updateTime: '2021-11-30'
+  }
 ]
 module.exports = [
   {

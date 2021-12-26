@@ -69,39 +69,39 @@
 </template>
 
 <script>
-import SValidate from "./components/svalidate.vue";
+import SValidate from './components/svalidate.vue'
 export default {
   components: {
-    SValidate,
+    SValidate
   },
   data() {
     return {
       form: {
-        name: "",
+        name: '',
         rules: [
           {
-            test: function (value) {
-              return /\s+/.test(value);
+            test: function(value) {
+              return /\s+/.test(value)
             },
-            message: "请输入字母",
-          },
+            message: '请输入字母'
+          }
         ],
-        region: "",
-        date1: "",
-        date2: "",
+        region: '',
+        date1: '',
+        date2: '',
         delivery: false,
         type: [],
-        resource: "",
-        desc: "",
-      },
-    };
+        resource: '',
+        desc: ''
+      }
+    }
   },
   methods: {
     onSubmit() {
-      console.log("submit!");
-    },
-  },
-};
+      console.log('submit!')
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
